@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EfDiagram.Migrations
 {
     /// <inheritdoc />
-    public partial class EfDiagram : Migration
+    public partial class initCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -102,6 +102,7 @@ namespace EfDiagram.Migrations
                     UserID = table.Column<int>(type: "int", nullable: false),
                     PolicyID = table.Column<int>(type: "int", nullable: false),
                     AddOnPolicyID = table.Column<int>(type: "int", nullable: false),
+                    VehicleID = table.Column<int>(type: "int", nullable: false),
                     status = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },

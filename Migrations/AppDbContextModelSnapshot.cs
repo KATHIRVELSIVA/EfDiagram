@@ -149,6 +149,9 @@ namespace EfDiagram.Migrations
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
+                    b.Property<int>("VehicleID")
+                        .HasColumnType("int");
+
                     b.Property<string>("status")
                         .HasColumnType("longtext");
 

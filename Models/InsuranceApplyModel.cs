@@ -13,6 +13,7 @@ namespace EfDiagram.Models
         public required PolicyModel PolicyModelID { get; set; }
         [ForeignKey("AddOnPolicyID")]
         public required AddOnPolicyModel AddOnPolicy { get; set; }
+        public int VehicleID { get; set; }
         public string ? status { get; set; }
     }
 }

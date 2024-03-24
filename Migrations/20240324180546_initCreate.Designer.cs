@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfDiagram.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240324040200_EfDiagram")]
-    partial class EfDiagram
+    [Migration("20240324180546_initCreate")]
+    partial class initCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -150,6 +150,9 @@ namespace EfDiagram.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VehicleID")
                         .HasColumnType("int");
 
                     b.Property<string>("status")

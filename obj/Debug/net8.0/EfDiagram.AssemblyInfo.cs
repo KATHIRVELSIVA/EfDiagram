@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EfDiagram")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11434c400afdb70bb3e0b4bf55c54d28278f30cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+badf8f9d9d6845f1d3b21a7ef76f368d9ad90cda")]
 [assembly: System.Reflection.AssemblyProductAttribute("EfDiagram")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EfDiagram")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
