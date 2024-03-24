@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfDiagram.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240324033903_EfDiagram")]
+    [Migration("20240324034754_EfDiagram")]
     partial class EfDiagram
     {
         /// <inheritdoc />
@@ -86,10 +86,10 @@ namespace EfDiagram.Migrations
                     b.Property<int>("ClaimID")
                         .HasColumnType("int");
 
-                    b.Property<int>("IDVvalue")
+                    b.Property<int>("PolicyID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PolicyID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -98,9 +98,9 @@ namespace EfDiagram.Migrations
 
                     b.HasIndex("ClaimID");
 
-                    b.HasIndex("IDVvalue");
-
                     b.HasIndex("PolicyID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("ClaimAmounts");
                 });
@@ -313,15 +313,15 @@ namespace EfDiagram.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EfDiagram.Models.VehicleModel", "VehicleID")
-                        .WithMany()
-                        .HasForeignKey("IDVvalue")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("EfDiagram.Models.PolicyModel", "PolicyId")
                         .WithMany()
                         .HasForeignKey("PolicyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EfDiagram.Models.VehicleModel", "VehicleID")
+                        .WithMany()
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

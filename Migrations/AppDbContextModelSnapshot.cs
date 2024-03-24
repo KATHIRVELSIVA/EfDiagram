@@ -83,10 +83,10 @@ namespace EfDiagram.Migrations
                     b.Property<int>("ClaimID")
                         .HasColumnType("int");
 
-                    b.Property<int>("IDVvalue")
+                    b.Property<int>("PolicyID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PolicyID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -95,9 +95,9 @@ namespace EfDiagram.Migrations
 
                     b.HasIndex("ClaimID");
 
-                    b.HasIndex("IDVvalue");
-
                     b.HasIndex("PolicyID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("ClaimAmounts");
                 });
@@ -310,15 +310,15 @@ namespace EfDiagram.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EfDiagram.Models.VehicleModel", "VehicleID")
-                        .WithMany()
-                        .HasForeignKey("IDVvalue")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("EfDiagram.Models.PolicyModel", "PolicyId")
                         .WithMany()
                         .HasForeignKey("PolicyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EfDiagram.Models.VehicleModel", "VehicleID")
+                        .WithMany()
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

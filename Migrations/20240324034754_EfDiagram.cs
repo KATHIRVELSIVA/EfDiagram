@@ -220,7 +220,7 @@ namespace EfDiagram.Migrations
                     PolicyID = table.Column<int>(type: "int", nullable: false),
                     AddOnPolicyID = table.Column<int>(type: "int", nullable: false),
                     ClaimID = table.Column<int>(type: "int", nullable: false),
-                    IDVvalue = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: false),
                     ClaimAmount = table.Column<double>(type: "double", nullable: false)
                 },
                 constraints: table =>
@@ -245,8 +245,8 @@ namespace EfDiagram.Migrations
                         principalColumn: "PolicyID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClaimAmounts_VehicleModel_IDVvalue",
-                        column: x => x.IDVvalue,
+                        name: "FK_ClaimAmounts_VehicleModel_UserID",
+                        column: x => x.UserID,
                         principalTable: "VehicleModel",
                         principalColumn: "VehicleId",
                         onDelete: ReferentialAction.Cascade);
@@ -269,14 +269,14 @@ namespace EfDiagram.Migrations
                 column: "ClaimID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClaimAmounts_IDVvalue",
-                table: "ClaimAmounts",
-                column: "IDVvalue");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ClaimAmounts_PolicyID",
                 table: "ClaimAmounts",
                 column: "PolicyID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClaimAmounts_UserID",
+                table: "ClaimAmounts",
+                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InsuranceApply_AddOnPolicyID",
