@@ -13,8 +13,9 @@ namespace EfDiagram.Models
         public required AddOnPolicyModel AddOnPolicyId { get; set; }
         [ForeignKey("ClaimID")]
         public required ClaimModel ClaimId { get; set; }
-        [ForeignKey("UserID")]
+        [ForeignKey("VehicleId")]
         public required VehicleModel VehicleID { get; set; }
+        
         public double ClaimAmount { get; set; }
     }
 }

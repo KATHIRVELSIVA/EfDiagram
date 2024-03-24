@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfDiagram.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240324034754_EfDiagram")]
+    [Migration("20240324040200_EfDiagram")]
     partial class EfDiagram
     {
         /// <inheritdoc />
@@ -89,7 +89,7 @@ namespace EfDiagram.Migrations
                     b.Property<int>("PolicyID")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int>("VehicleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -100,7 +100,7 @@ namespace EfDiagram.Migrations
 
                     b.HasIndex("PolicyID");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("VehicleId");
 
                     b.ToTable("ClaimAmounts");
                 });
@@ -321,7 +321,7 @@ namespace EfDiagram.Migrations
 
                     b.HasOne("EfDiagram.Models.VehicleModel", "VehicleID")
                         .WithMany()
-                        .HasForeignKey("UserID")
+                        .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
