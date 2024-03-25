@@ -10,7 +10,7 @@ namespace EfDiagram.Models
         public string? ClaimName { get; set; }
         public string? ClaimReason { get; set; }
         public string? FIRNo { get; set; }
-        public bool ? Status { get; set; }
+        public string ? Status { get; set; }
         [ForeignKey("ApplyId")]
         public InsuranceApplyModel InsuranceApplyId { get; set; }
 

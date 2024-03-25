@@ -24,6 +24,15 @@ namespace EfDiagram.Data
             builder.Entity<VehicleModel>()
                 .HasIndex(u => u.VehicleId)
                 .IsUnique();
+            builder.Entity<InsuranceApplyModel>()
+               .HasIndex(u => u.VehicleID)
+               .IsUnique();
+            builder.Entity<ClaimAmountModel>()
+               .HasIndex(u => u.Status)
+               .IsUnique();
+            builder.Entity<ClaimModel>()
+               .HasIndex(u => u.Status)
+               .IsUnique();
         }
 
     }

@@ -15,7 +15,7 @@ namespace EfDiagram.Models
         public required ClaimModel ClaimId { get; set; }
         [ForeignKey("VehicleId")]
         public required VehicleModel VehicleID { get; set; }
-        
+        public string? Status { get; set; }
         public double ClaimAmount { get; set; }
     }
 }

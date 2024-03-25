@@ -86,6 +86,9 @@ namespace EfDiagram.Migrations
                     b.Property<int>("PolicyID")
                         .HasColumnType("int");
 
+                    b.Property<string>("Status")
+                        .HasColumnType("varchar(95)");
+
                     b.Property<int>("VehicleId")
                         .HasColumnType("int");
 
@@ -96,6 +99,9 @@ namespace EfDiagram.Migrations
                     b.HasIndex("ClaimID");
 
                     b.HasIndex("PolicyID");
+
+                    b.HasIndex("Status")
+                        .IsUnique();
 
                     b.HasIndex("VehicleId");
 
@@ -122,12 +128,15 @@ namespace EfDiagram.Migrations
                     b.Property<string>("FIRNo")
                         .HasColumnType("longtext");
 
-                    b.Property<bool?>("Status")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<string>("Status")
+                        .HasColumnType("varchar(95)");
 
                     b.HasKey("ClaimID");
 
                     b.HasIndex("ApplyId");
+
+                    b.HasIndex("Status")
+                        .IsUnique();
 
                     b.ToTable("Claim");
                 });
@@ -162,6 +171,9 @@ namespace EfDiagram.Migrations
                     b.HasIndex("PolicyID");
 
                     b.HasIndex("UserID");
+
+                    b.HasIndex("VehicleID")
+                        .IsUnique();
 
                     b.ToTable("InsuranceApply");
                 });

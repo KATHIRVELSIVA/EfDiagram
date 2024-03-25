@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EfDiagram.Migrations
 {
     /// <inheritdoc />
-    public partial class initCreate : Migration
+    public partial class Uniqueconstraintsadded : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -197,7 +197,8 @@ namespace EfDiagram.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     FIRNo = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Status = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    Status = table.Column<string>(type: "varchar(95)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     ApplyId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -222,6 +223,8 @@ namespace EfDiagram.Migrations
                     AddOnPolicyID = table.Column<int>(type: "int", nullable: false),
                     ClaimID = table.Column<int>(type: "int", nullable: false),
                     VehicleId = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "varchar(95)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     ClaimAmount = table.Column<double>(type: "double", nullable: false)
                 },
                 constraints: table =>
@@ -260,6 +263,12 @@ namespace EfDiagram.Migrations
                 column: "ApplyId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Claim_Status",
+                table: "Claim",
+                column: "Status",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ClaimAmounts_AddOnPolicyID",
                 table: "ClaimAmounts",
                 column: "AddOnPolicyID");
@@ -273,6 +282,12 @@ namespace EfDiagram.Migrations
                 name: "IX_ClaimAmounts_PolicyID",
                 table: "ClaimAmounts",
                 column: "PolicyID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClaimAmounts_Status",
+                table: "ClaimAmounts",
+                column: "Status",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_ClaimAmounts_VehicleId",
@@ -293,6 +308,12 @@ namespace EfDiagram.Migrations
                 name: "IX_InsuranceApply_UserID",
                 table: "InsuranceApply",
                 column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InsuranceApply_VehicleID",
+                table: "InsuranceApply",
+                column: "VehicleID",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_PdfDocument_UserID",
